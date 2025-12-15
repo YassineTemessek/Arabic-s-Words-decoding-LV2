@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Editors/OS
+.vscode/
+.idea/
+*.swp
+Thumbs.db
+Desktop.ini
+
+# Logs & env
+*.log
+.env
+.env.*
+
+# Large local datasets (keep only lightweight docs/metadata in git)
+/data/*
+!/data/README.md
+!/data/processed/
+/data/processed/*
+!/data/processed/README.md
+!/data/processed/arabic/
+!/data/processed/arabic/quran_lemmas_enriched.jsonl
+!/data/processed/arabic/word_root_map_filtered.jsonl
+!/data/processed/arabic/arabic_words_binary_roots.jsonl
+
+# Local outputs (generated artifacts)
+OpenAI/output/*
+!OpenAI/output/README.md
+Gemini/output/*
+!Gemini/output/README.md
