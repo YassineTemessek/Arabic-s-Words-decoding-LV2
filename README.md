@@ -24,7 +24,9 @@ The intended graph primitives are:
 
 ## Quickstart (PowerShell)
 
+- Setup (optional): `powershell -ExecutionPolicy Bypass -File scripts/setup.ps1`
 - Ingest Arabic tables: `python "OpenAI/scripts/run_ingest_all.py" --only arabic`
 - Validate canonical outputs: `python "OpenAI/scripts/validate_processed.py" --all`
+- Smoke (committed processed + graph export): `powershell -ExecutionPolicy Bypass -File scripts/smoke.ps1`
 
 If you keep big inputs outside the repo, pass `--resources-dir "C:/AI Projects/Resources"` to `run_ingest_all.py`.

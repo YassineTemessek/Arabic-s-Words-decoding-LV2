@@ -115,18 +115,22 @@ def export_graph(input_path: Path, nodes_csv: Path, edges_csv: Path) -> dict[str
 def main() -> None:
     ap = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/arabic_words_binary_roots.jsonl"))
-    ap.add_argument("--nodes", type=Path, default=Path("OpenAI/output/graphs/binary_root_nodes.csv"))
-    ap.add_argument("--edges", type=Path, default=Path("OpenAI/output/graphs/binary_root_edges.csv"))
+    ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for nodes/edges CSVs (ignored if --nodes/--edges are set).")
+    ap.add_argument("--nodes", type=Path, default=None, help="Path to nodes CSV (overrides --out-dir).")
+    ap.add_argument("--edges", type=Path, default=None, help="Path to edges CSV (overrides --out-dir).")
     args = ap.parse_args()
 
     if not args.input.exists():
         raise SystemExit(f"Missing input: {args.input}")
 
-    stats = export_graph(args.input, args.nodes, args.edges)
-    print(f"Wrote nodes: {args.nodes} (n={stats['nodes']})")
-    print(f"Wrote edges: {args.edges} (n={stats['edges']})")
+    out_dir = args.out_dir or Path("OpenAI/output/graphs")
+    nodes_path = args.nodes or (out_dir / "binary_root_nodes.csv")
+    edges_path = args.edges or (out_dir / "binary_root_edges.csv")
+
+    stats = export_graph(args.input, nodes_path, edges_path)
+    print(f"Wrote nodes: {nodes_path} (n={stats['nodes']})")
+    print(f"Wrote edges: {edges_path} (n={stats['edges']})")
 
 
 if __name__ == "__main__":
     main()
-

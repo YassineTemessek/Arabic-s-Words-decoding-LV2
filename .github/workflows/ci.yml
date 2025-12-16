@@ -1,0 +1,32 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.13"
+          cache: "pip"
+      - name: Compile
+        run: |
+          python -m compileall OpenAI/scripts
+      - name: Validate committed processed outputs
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python OpenAI/scripts/validate_processed.py data/processed/arabic/quran_lemmas_enriched.jsonl data/processed/arabic/word_root_map_filtered.jsonl data/processed/arabic/arabic_words_binary_roots.jsonl
+      - name: Smoke: rebuild binary-root lexicon + export graph
+        env:
+          PYTHONUTF8: "1"
+        run: |
+          python OpenAI/scripts/build_arabic_binary_root_lexicon.py --word-root-map data/processed/arabic/word_root_map_filtered.jsonl --quran-lemmas data/processed/arabic/quran_lemmas_enriched.jsonl --output OpenAI/output/_ci/arabic_words_binary_roots.jsonl
+          python OpenAI/scripts/export_binary_root_graph.py --input OpenAI/output/_ci/arabic_words_binary_roots.jsonl --out-dir OpenAI/output/_ci/graphs
+
