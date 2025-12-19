@@ -2,9 +2,9 @@
 Validate processed JSONL outputs against the project's shared minimal schema.
 
 Usage:
-  python OpenAI/scripts/validate_processed.py --all
-  python OpenAI/scripts/validate_processed.py --all --require-files
-  python OpenAI/scripts/validate_processed.py data/processed/arabic/quran_lemmas_enriched.jsonl
+  python scripts/ingest/validate_processed.py --all
+  python scripts/ingest/validate_processed.py --all --require-files
+  python scripts/ingest/validate_processed.py data/processed/arabic/quran_lemmas_enriched.jsonl
 """
 
 from __future__ import annotations

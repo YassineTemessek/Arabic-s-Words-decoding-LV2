@@ -24,8 +24,8 @@ This repo keeps both:
 
 Downstream, we also support exporting the processed lexicon as simple **nodes/edges CSVs** for visualization and GraphRAG-style workflows:
 
-- `OpenAI/output/graphs/binary_root_nodes.csv`
-- `OpenAI/output/graphs/binary_root_edges.csv`
+- `outputs/graphs/binary_root_nodes.csv`
+- `outputs/graphs/binary_root_edges.csv`
 
 ## Common JSONL schema (target contract)
 

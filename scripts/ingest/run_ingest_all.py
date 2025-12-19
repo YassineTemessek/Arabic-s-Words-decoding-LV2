@@ -16,9 +16,9 @@ from pathlib import Path
 from typing import Any, Iterable
 
 
-CODEX_DIR = Path(__file__).resolve().parents[1]
-REPO_ROOT = CODEX_DIR.parent
-SCRIPTS_DIR = CODEX_DIR / "scripts"
+INGEST_DIR = Path(__file__).resolve().parent
+REPO_ROOT = Path(__file__).resolve().parents[2]
+SCRIPTS_DIR = INGEST_DIR
 
 CANONICAL_OUTPUTS: tuple[Path, ...] = (
     Path("data/processed/arabic/quran_lemmas_enriched.jsonl"),
@@ -237,7 +237,7 @@ def main() -> None:
         manifest["outputs"].append(_file_stats(REPO_ROOT / out_path))
 
     if args.write_manifest:
-        out_dir = REPO_ROOT / "OpenAI" / "output" / "manifests"
+        out_dir = REPO_ROOT / "outputs" / "manifests"
         out_dir.mkdir(parents=True, exist_ok=True)
         ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
         out_path = out_dir / f"ingest_run_{ts}.json"

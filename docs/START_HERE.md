@@ -15,7 +15,7 @@ Workflow:
 ## Core commands
 
 - Setup (optional): `powershell -ExecutionPolicy Bypass -File scripts/setup.ps1`
-- Ingest (Arabic): `python "OpenAI/scripts/run_ingest_all.py" --only arabic`
-- Ingest (Arabic, external resources dir): `python "OpenAI/scripts/run_ingest_all.py" --only arabic --resources-dir "C:/AI Projects/Resources" --require-inputs --fail-fast`
-- Validate: `python "OpenAI/scripts/validate_processed.py" --all --require-files`
-- Export graph (nodes + edges): `python "OpenAI/scripts/export_binary_root_graph.py"`
+- Ingest (Arabic): `python "scripts/ingest/run_ingest_all.py" --only arabic`
+- Ingest (Arabic, external resources dir): `python "scripts/ingest/run_ingest_all.py" --only arabic --resources-dir "C:/AI Projects/Resources" --require-inputs --fail-fast`
+- Validate: `python "scripts/ingest/validate_processed.py" --all --require-files`
+- Export graph (nodes + edges): `python "scripts/ingest/export_binary_root_graph.py"`

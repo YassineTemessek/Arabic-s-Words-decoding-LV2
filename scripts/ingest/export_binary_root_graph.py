@@ -5,8 +5,8 @@ Input:
   - data/processed/arabic/arabic_words_binary_roots.jsonl
 
 Outputs (default):
-  - OpenAI/output/graphs/binary_root_nodes.csv
-  - OpenAI/output/graphs/binary_root_edges.csv
+  - outputs/graphs/binary_root_nodes.csv
+  - outputs/graphs/binary_root_edges.csv
 
 This format is intentionally simple (CSV) so it can be loaded into tools like
 Gephi, Cytoscape, Neo4j importers, or used as a base for GraphRAG pipelines.
@@ -123,7 +123,7 @@ def main() -> None:
     if not args.input.exists():
         raise SystemExit(f"Missing input: {args.input}")
 
-    out_dir = args.out_dir or Path("OpenAI/output/graphs")
+    out_dir = args.out_dir or Path("outputs/graphs")
     nodes_path = args.nodes or (out_dir / "binary_root_nodes.csv")
     edges_path = args.edges or (out_dir / "binary_root_edges.csv")
 

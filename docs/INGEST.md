@@ -1,6 +1,6 @@
 # Ingest (LV2)
 
-Ingest scripts live under `OpenAI/scripts/` and write processed outputs under `data/processed/`.
+Ingest scripts live under `scripts/ingest/` and write processed outputs under `data/processed/`.
 
 Canonical outputs and schema expectations are documented in `data/processed/README.md`.
 
@@ -30,4 +30,4 @@ This repo supports two equivalent layouts:
 
 After generating `data/processed/arabic/arabic_words_binary_roots.jsonl`, you can export a graph-friendly view:
 
-- Nodes + edges CSVs: `python "OpenAI/scripts/export_binary_root_graph.py"`
+- Nodes + edges CSVs: `python "scripts/ingest/export_binary_root_graph.py"`

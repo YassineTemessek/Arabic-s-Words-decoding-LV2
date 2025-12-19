@@ -31,7 +31,5 @@ Desktop.ini
 !/data/processed/arabic/arabic_words_binary_roots.jsonl
 
 # Local outputs (generated artifacts)
-OpenAI/output/*
-!OpenAI/output/README.md
-Gemini/output/*
-!Gemini/output/README.md
+outputs/*
+!outputs/README.md
