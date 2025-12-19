@@ -26,9 +26,6 @@ Desktop.ini
 /data/processed/*
 !/data/processed/README.md
 !/data/processed/arabic/
-!/data/processed/arabic/quran_lemmas_enriched.jsonl
-!/data/processed/arabic/word_root_map_filtered.jsonl
-!/data/processed/arabic/arabic_words_binary_roots.jsonl
 
 # Local outputs (generated artifacts)
 outputs/*

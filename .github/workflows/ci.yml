@@ -17,15 +17,4 @@ jobs:
           cache: "pip"
       - name: Compile
         run: |
-          python -m compileall scripts/ingest
-      - name: Validate committed processed outputs
-        env:
-          PYTHONUTF8: "1"
-        run: |
-          python scripts/ingest/validate_processed.py data/processed/arabic/quran_lemmas_enriched.jsonl data/processed/arabic/word_root_map_filtered.jsonl data/processed/arabic/arabic_words_binary_roots.jsonl
-      - name: Smoke: rebuild binary-root lexicon + export graph
-        env:
-          PYTHONUTF8: "1"
-        run: |
-          python scripts/ingest/build_arabic_binary_root_lexicon.py --word-root-map data/processed/arabic/word_root_map_filtered.jsonl --quran-lemmas data/processed/arabic/quran_lemmas_enriched.jsonl --output outputs/_ci/arabic_words_binary_roots.jsonl
-          python scripts/ingest/export_binary_root_graph.py --input outputs/_ci/arabic_words_binary_roots.jsonl --out-dir outputs/_ci/graphs
+          python -m compileall scripts/graph

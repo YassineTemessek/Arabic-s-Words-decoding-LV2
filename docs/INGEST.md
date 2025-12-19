@@ -1,33 +1,15 @@
-# Ingest (LV2)
+# Ingest (LV0)
 
-Ingest scripts live under `scripts/ingest/` and write processed outputs under `data/processed/`.
+LV2 does not own ingest anymore.
 
-Canonical outputs and schema expectations are documented in `data/processed/README.md`.
+Raw → processed canonical datasets live in LV0 (data core):
 
-## Inputs (where to put them)
+- `https://github.com/YassineTemessek/LinguisticDataCore-LV0`
 
-This repo supports two equivalent layouts:
-
-1) **Repo-local** under `data/raw/`:
-   - `data/raw/arabic/quran-morphology/quran-morphology.txt`
-   - `data/raw/arabic/word_root_map.csv`
-   - `data/raw/arabic/arabic_roots_hf/train-00000-of-00001.parquet`
-
-2) **External resources dir** (recommended for big files):
-   - Set `LC_RESOURCES_DIR=C:\AI Projects\Resources` (or pass `--resources-dir` to `run_ingest_all.py`)
-   - Place:
-     - `%LC_RESOURCES_DIR%/word_root_map.csv`
-     - `%LC_RESOURCES_DIR%/arabic_roots_hf/train-00000-of-00001.parquet`
-
-`quran-morphology.txt` is expected under `data/raw/` (it is small enough to keep local), but you can also keep it externally and symlink/copy it in.
-
-## Dependencies
-
-- Most scripts (binary-root build + graph export) are **stdlib only**.
-- The HF parquet ingest step needs: `pandas` + `pyarrow` (see `requirements-ingest.txt`).
+LV2 consumes processed datasets (for example, a binary-root lexicon JSONL) and focuses on clustering/regrouping + graph exports.
 
 ## Graph exports (LV2)
 
-After generating `data/processed/arabic/arabic_words_binary_roots.jsonl`, you can export a graph-friendly view:
+Given an Arabic binary-root lexicon JSONL, export a graph-friendly view:
 
-- Nodes + edges CSVs: `python "scripts/ingest/export_binary_root_graph.py"`
+- Nodes + edges CSVs: `python "scripts/graph/export_binary_root_graph.py" --input <binary_root_lexicon.jsonl>`

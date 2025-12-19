@@ -10,7 +10,7 @@ Expected inputs (examples):
 - `data/raw/arabic/word_root_map.csv`
 - `data/raw/arabic/arabic_roots_hf/train-00000-of-00001.parquet`
 
-If you keep datasets outside this repo, set `LC_RESOURCES_DIR` or pass `--resources-dir` to `scripts/ingest/run_ingest_all.py`.
+LV2 does not own ingest anymore; raw datasets and processing live in LV0 (data core).
 
 ## `data/processed/` (outputs)
 

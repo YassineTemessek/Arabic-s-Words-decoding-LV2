@@ -4,6 +4,5 @@ param(
 
 $ErrorActionPreference = "Stop"
 
-& $Python scripts/ingest/validate_processed.py data/processed/arabic/quran_lemmas_enriched.jsonl data/processed/arabic/word_root_map_filtered.jsonl data/processed/arabic/arabic_words_binary_roots.jsonl
-& $Python scripts/ingest/export_binary_root_graph.py
-
+Write-Host "LV2 no longer owns ingest. Fetch/build processed data via LV0, then run graph export with an explicit input path."
+Write-Host "Example: $Python scripts/graph/export_binary_root_graph.py --input <binary_root_lexicon.jsonl>"

@@ -9,14 +9,11 @@ This repo is a **data pipeline** for Arabic decoding with a specific LV2 focus:
 
 Workflow:
 
-1) Put raw datasets under `data/raw/` (not committed).
-2) Run ingest to create canonical processed JSONL under `data/processed/` (not committed).
-3) Validate processed outputs before doing downstream work.
+1) Build/fetch canonical processed datasets in LV0 (data core).
+2) Run LV2 clustering/regrouping and graph exports using those processed tables.
 
 ## Core commands
 
 - Setup (optional): `powershell -ExecutionPolicy Bypass -File scripts/setup.ps1`
-- Ingest (Arabic): `python "scripts/ingest/run_ingest_all.py" --only arabic`
-- Ingest (Arabic, external resources dir): `python "scripts/ingest/run_ingest_all.py" --only arabic --resources-dir "C:/AI Projects/Resources" --require-inputs --fail-fast`
-- Validate: `python "scripts/ingest/validate_processed.py" --all --require-files`
-- Export graph (nodes + edges): `python "scripts/ingest/export_binary_root_graph.py"`
+- LV0 (data core): `https://github.com/YassineTemessek/LinguisticDataCore-LV0`
+- Export graph (nodes + edges): `python "scripts/graph/export_binary_root_graph.py" --input <binary_root_lexicon.jsonl>`

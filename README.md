@@ -25,8 +25,7 @@ The intended graph primitives are:
 ## Quickstart (PowerShell)
 
 - Setup (optional): `powershell -ExecutionPolicy Bypass -File scripts/setup.ps1`
-- Ingest Arabic tables: `python "scripts/ingest/run_ingest_all.py" --only arabic`
-- Validate canonical outputs: `python "scripts/ingest/validate_processed.py" --all`
-- Smoke (committed processed + graph export): `powershell -ExecutionPolicy Bypass -File scripts/smoke.ps1`
+- Get canonical processed Arabic tables from LV0 (data core), then run LV2 clustering/graph scripts in this repo.
+- Graph export (nodes + edges): `python "scripts/graph/export_binary_root_graph.py" --input <binary_root_lexicon.jsonl>`
 
-If you keep big inputs outside the repo, pass `--resources-dir "C:/AI Projects/Resources"` to `run_ingest_all.py`.
+LV0 repo: `https://github.com/YassineTemessek/LinguisticDataCore-LV0`
