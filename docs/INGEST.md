@@ -8,6 +8,10 @@ Raw → processed canonical datasets live in LV0 (data core):
 
 LV2 consumes processed datasets (for example, a binary-root lexicon JSONL) and focuses on clustering/regrouping + graph exports.
 
+In LV0, the canonical Arabic binary-root lexicon is:
+
+- `data/processed/arabic/arabic_words_binary_roots.jsonl`
+
 ## Graph exports (LV2)
 
 Given an Arabic binary-root lexicon JSONL, export a graph-friendly view:
