@@ -3,8 +3,9 @@
 This repo is a **data pipeline** for Arabic decoding with a specific LV2 focus:
 
 - Build processed Arabic tables that maximize coverage of Arabic words/lemmas with known roots.
-- Derive a **binary root** key (2-letter nucleus) from the provided root so downstream algorithms can regroup word families under that nucleus.
-- Export a **graph view** (nodes/edges) so relationships are easy to inspect visually and can later support GraphRAG-style workflows.
+- Derive a **binary root** key (2-letter nucleus) from the provided root so words can be regrouped into binary-root-centered clusters.
+- Run clustering/regrouping experiments using methods that fit the purpose (heuristics, embeddings like SONAR/CANINE, and graph-based approaches).
+- Export a **graph view** (nodes/edges) so relationships are easy to inspect visually and can support GraphRAG-style workflows.
 
 Workflow:
 

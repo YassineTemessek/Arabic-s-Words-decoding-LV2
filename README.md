@@ -6,11 +6,11 @@ Core LV2 idea:
 
 - Standard Arabic roots are typically 3 (or 4) letters.
 - LV2 assumes many 3-letter roots can be grouped under a deeper **binary nucleus** (the first “real” 2 radicals), with later letters shaping nuance.
-- The goal of this level is to build a wide-coverage Arabic word list with root metadata so a later algorithm can regroup words by **binary root**.
+- The goal of this level is to build a wide-coverage Arabic word list with root metadata, then **regroup words into binary-root-centered clusters** using algorithms that fit the purpose (heuristics, SONAR/CANINE embeddings, and/or graph-based methods).
 
 ## Graph view (planned)
 
-LV2 also aims to produce a **graph-friendly representation** of Arabic word relationships so they can later be explored visually and/or fed into a GraphRAG-style system.
+LV2 also aims to produce a **graph-friendly representation** of Arabic word relationships so they can be explored visually and/or fed into a GraphRAG-style system (within-group links and cross-group links scored by distance/similarity).
 
 The intended graph primitives are:
 
