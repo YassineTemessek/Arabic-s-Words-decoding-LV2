@@ -41,6 +41,10 @@ LV2 aims to produce a graph-friendly representation of Arabic word relationships
 1) Get canonical Arabic processed tables from LV0 (recommended: fetch LV0 release bundles).
 2) Run LV2 clustering/graph scripts here.
 
+Binary-root clustering (discovery):
+
+- `python "scripts/cluster/cluster_by_binary_root.py"`
+
 Graph export (nodes + edges):
 
 - `python "scripts/graph/export_binary_root_graph.py" --input <binary_root_lexicon.jsonl>`
