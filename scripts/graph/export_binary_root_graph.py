@@ -68,7 +68,7 @@ def export_graph(input_path: Path, nodes_csv: Path, edges_csv: Path) -> dict[str
             kind="lemma",
             label=lemma,
             language=rec.get("language"),
-            script=rec.get("script"),
+            script=rec.get("script") or "",
             lemma_status=rec.get("lemma_status"),
             translit=rec.get("translit"),
             ipa=rec.get("ipa"),
@@ -76,7 +76,7 @@ def export_graph(input_path: Path, nodes_csv: Path, edges_csv: Path) -> dict[str
 
         if root_norm:
             root_nid = node_id("root", root_norm)
-            upsert_node(root_nid, kind="root", label=root_norm, language=rec.get("language"), script=rec.get("script"))
+            upsert_node(root_nid, kind="root", label=root_norm, language=rec.get("language"), script=rec.get("script") or "")
             edges.append(
                 {
                     "src": lemma_nid,
@@ -89,7 +89,7 @@ def export_graph(input_path: Path, nodes_csv: Path, edges_csv: Path) -> dict[str
 
         if binary_root:
             bin_nid = node_id("binary_root", binary_root)
-            upsert_node(bin_nid, kind="binary_root", label=binary_root, language=rec.get("language"), script=rec.get("script"))
+            upsert_node(bin_nid, kind="binary_root", label=binary_root, language=rec.get("language"), script=rec.get("script") or "")
             if root_norm:
                 edges.append({"src": root_nid, "dst": bin_nid, "type": "root_has_binary_root", "method": rec.get("binary_root_method")})
             else:
@@ -114,7 +114,7 @@ def export_graph(input_path: Path, nodes_csv: Path, edges_csv: Path) -> dict[str
 
 def main() -> None:
     ap = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/arabic_words_binary_roots.jsonl"))
+    ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/classical/arabic_words_binary_roots.jsonl"))
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for nodes/edges CSVs (ignored if --nodes/--edges are set).")
     ap.add_argument("--nodes", type=Path, default=None, help="Path to nodes CSV (overrides --out-dir).")
     ap.add_argument("--edges", type=Path, default=None, help="Path to edges CSV (overrides --out-dir).")
