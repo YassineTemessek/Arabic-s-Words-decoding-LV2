@@ -16,6 +16,6 @@ Workflow:
 
 - Setup (optional): `powershell -ExecutionPolicy Bypass -File scripts/setup.ps1`
 - LV0 (data core): `https://github.com/YassineTemessek/LinguisticDataCore-LV0`
-- In LV0, the Arabic ingest produces a ready lexicon with `binary_root`: `data/processed/arabic/classical/arabic_words_binary_roots.jsonl`
+- In LV0, the Arabic ingest produces a canonical merged file ready to use: `data/processed/arabic/classical/lexemes.jsonl`
 - Cluster within each `binary_root` (discovery): `python "scripts/cluster/cluster_by_binary_root.py"`
 - Export graph (nodes + edges): `python "scripts/graph/export_binary_root_graph.py" --input <binary_root_lexicon.jsonl>`

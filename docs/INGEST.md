@@ -10,7 +10,8 @@ LV2 consumes processed datasets (for example, a binary-root lexicon JSONL) and f
 
 In LV0, the canonical Arabic binary-root lexicon is:
 
-- `data/processed/arabic/classical/arabic_words_binary_roots.jsonl`
+- Canonical merged lexemes (recommended): `data/processed/arabic/classical/lexemes.jsonl`
+- Source-specific (optional): `data/processed/arabic/classical/arabic_words_binary_roots.jsonl`
 
 ## Graph exports (LV2)
 

@@ -114,7 +114,7 @@ def export_graph(input_path: Path, nodes_csv: Path, edges_csv: Path) -> dict[str
 
 def main() -> None:
     ap = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/classical/arabic_words_binary_roots.jsonl"))
+    ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/classical/lexemes.jsonl"))
     ap.add_argument("--out-dir", type=Path, default=None, help="Output directory for nodes/edges CSVs (ignored if --nodes/--edges are set).")
     ap.add_argument("--nodes", type=Path, default=None, help="Path to nodes CSV (overrides --out-dir).")
     ap.add_argument("--edges", type=Path, default=None, help="Path to edges CSV (overrides --out-dir).")

@@ -7,7 +7,7 @@ Purpose (LV2 discovery):
     (no heavy model downloads required).
 
 Inputs (default):
-  - data/processed/arabic/classical/arabic_words_binary_roots.jsonl
+  - data/processed/arabic/classical/lexemes.jsonl
 
 Outputs (default):
   - outputs/clusters/binary_root_lemma_clusters.jsonl
@@ -162,7 +162,7 @@ def build_similarity(rows: list[LemmaRow]) -> tuple[list[list[float]], list[list
 
 def main() -> None:
     ap = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/classical/arabic_words_binary_roots.jsonl"))
+    ap.add_argument("--input", type=Path, default=Path("data/processed/arabic/classical/lexemes.jsonl"))
     ap.add_argument("--out-dir", type=Path, default=Path("outputs/clusters"))
     ap.add_argument("--form-threshold", type=float, default=0.55, help="Within-binary_root threshold for form subclusters.")
     ap.add_argument("--meaning-threshold", type=float, default=0.35, help="Within-binary_root threshold for meaning subclusters (requires gloss/definition).")
